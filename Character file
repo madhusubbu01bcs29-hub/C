@@ -1,0 +1,26 @@
+#include<stdio.h>
+int main()
+{
+   FILE *fp;
+   char ch;
+   int characters=0,lines=0;
+   fp=fopen("input.txt","r");
+   if(fp==NULL)
+   {
+      printf("File cannot be opened.\n");
+      return 1;
+   }
+   while((ch=fgetc(fp))!=EOF)
+   {
+      if(ch!= '\n' && ch!= '\r' && ch!='\t')
+      characters++;
+      if(ch=='\n')
+      {
+         lines++;
+      }
+   }
+  fclose(fp);
+  printf("Total character:%d\n",characters);
+  printf("Total ines:%d\n",lines-1);
+  return 0;
+}
