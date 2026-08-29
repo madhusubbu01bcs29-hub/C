@@ -1,0 +1,64 @@
+#include<stdio.h>
+int main()
+{
+   FILE*fp;
+   float sum=0,average;
+   int roll,n,i,j;
+   char grade;
+   char name[20];
+   float marks[5];
+   printf("Enter number of students:");
+   scanf("%d",&n);
+   fp=fopen("students.txt","w");
+   if(fp==NULL)
+   {
+      printf("Cannot open file for writing.\n");
+      return 1;
+   }
+   printf("Enter details of %d students(Roll Name 5 marks):\n",n);
+   for(i=0;i<n;i++)
+   {
+      printf("Student %d:",i+1);
+      scanf("%d %s",&roll,name);
+      for(j=0;j<5;j++)
+      {
+         scanf("%f",&marks[j]);
+      }
+      fprintf(fp,"%d %s %f %f %f %f %f\n",roll,name,marks[0],marks[1],marks[2],marks[3],marks[4]);
+   }
+   fclose(fp);
+   fp=fopen("students.txt","r");
+   if(fp==NULL)
+   {
+      printf("cannot open file.for regarding.\n");
+      return 1;
+   }
+   printf("\nRoll\tName\tTotal\t\tAverage\t\tGrade\n");
+   for(i=0;i<n;i++)
+   {
+      if(fscanf(fp,"%d %s %f %f %f %f %f",&roll,name,&marks[0],&marks[1],&marks[2],&marks[3],&marks[4])!=7)
+      {
+         break;
+      }
+      sum=0;
+      for(j=0;j<5;j++)
+      {
+         sum+=marks[j];
+      }
+      average=sum/5;
+      char grade;
+      if(average>=90)
+         grade='A';
+      else if(average>=80)
+         grade='B';
+      else if(average>=70)
+         grade='C';
+      else if(average>=60)
+         grade='D';
+      else
+         grade='F';
+      printf("%d\t %s\t %f\t %f\t %c\n",roll,name,sum,average,grade);
+  }
+  fclose(fp);
+  return 0;
+}
