@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+         float a,b,c,D;
+         printf("enter a:");
+         scanf("%f",&a);
+         printf("enter b:");
+         scanf("%f",&b);
+         printf("enter c:");
+         scanf("%f",&c);
+         D=(b*b)-4*a*c;
+         if(D==0)
+         {
+                  printf("Root 1 is %f\n",-b/(2*a));
+                  printf("Root 2 is %f",-b/(2*a));
+         }
+         else if(D>0)
+         {
+                  printf("Root 1 is %f\n",(-b+(pow(D,0.5)))/(2*a));
+                  printf("Root 2 is %f",(-b-(pow(D,0.5)))/(2*a));
+         }
+         else
+               printf("Roots are imaginary");
+               return 0;
+         
