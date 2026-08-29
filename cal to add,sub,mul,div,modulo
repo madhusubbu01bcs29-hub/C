@@ -1,0 +1,107 @@
+#include<stdio.h>
+int add(int a,int b);
+int sub(int a,int b);
+int multiply(int a,int b);
+int division(int a,int b);
+int modulo(int a,int b);
+int add(int a,int b)
+{
+   int res;
+   res=a+b;
+   return res;
+}
+int sub(int a,int b)
+{
+   int res;
+   res=a-b;
+   return res;
+}
+int multiply(int a,int b)
+{
+   int res;
+   res=a*b;
+   return res;
+}
+int division(int a,int b)
+{
+   int res;
+   res=a/b;
+   return res;
+}
+int modulo(int a,int b)
+{
+   int res;
+   res=a%b;
+   return res;
+}
+int main()
+{
+   int choice,A,B,res;
+   do
+   {
+      printf("\n1.Addition");
+      printf("\n2.Subtraction");
+      printf("\n3.Multiplication");
+      printf("\n4.Division");
+      printf("\n5.Modulo");
+      printf("\n6.exit");
+      printf("\nEnter your choice:");
+      scanf("%d",&choice);
+      switch(choice)
+      {
+         case 1:
+            printf("Enter 1st number:");
+            scanf("%d",&A);
+            printf("Enter 2nd number:");
+            scanf("%d",&B);
+            res=add(A,B);
+            printf("sum=%d",res);
+            break;
+         case 2:
+             printf("Enter 1st number:");
+             scanf("%d",&A);
+             printf("Enter 2nd number:");
+             scanf("%d",&B);
+             res=sub(A,B);
+             printf("subtraction=%d",res);
+            break;
+         case 3:
+             printf("Enter 1st number:");
+             scanf("%d",&A);
+             printf("Enter 2nd number:");
+             scanf("%d",&B);
+             res=multiply(A,B);
+             printf("Multiplication=%d",res);
+            break;
+         case 4:
+             printf("Enter 1st number:");
+             scanf("%d",&A);
+             printf("Enter 2nd number:");
+             scanf("%d",&B);
+            if(B!=0)
+            {
+               res=division(A,B);
+               printf("Division=%d",res);
+            }
+            else
+            {
+               printf("B should not be zero");
+            }
+            break;
+         case 5:
+            printf("Enter 1st number:");
+            scanf("%d",&A);
+            printf("Enter 2nd number:");
+            scanf("%d",&B);
+            res=modulo(A,B);
+            printf("Modulo=%d",res);
+            break;
+        case 6:
+            printf("exit");
+            break;
+         default:
+            printf("invalid choice");
+     }
+   }while(choice!=6);
+   return 0;
+}
