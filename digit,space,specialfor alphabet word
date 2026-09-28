@@ -1,0 +1,36 @@
+#include<stdio.h>
+#include<ctype.h>
+int main()
+{
+   char str[200];
+   int i=0;
+   int alphabets=0,digits=0,spaces=0,special=0;
+   printf("Enter a string:");
+   fgets(str,sizeof(str),stdin);
+   while(str[i+1]!='\0')
+   {
+      if(isalpha(str[i]))
+      {
+          alphabets++;
+      }
+      else if(isdigit(str[i]))
+      {
+         digits++;
+      }
+      else if(isspace(str[i]))
+      {
+         spaces++;
+      }
+      else
+      {
+         special++;
+      }
+      i++;
+   }
+   printf("No.of alphabets:%d\n",alphabets);
+   printf("No.of digits:%d\n",digits);
+   printf("No.of spaces:%d\n",spaces);
+   printf("no.of special character:%d\n",special);
+   printf("No.of character:%d",i);
+   return 0;
+}
