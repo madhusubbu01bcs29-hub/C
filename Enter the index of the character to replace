@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    char str[100];
+    int index;
+    char newchar;
+    printf("Enter a string:");
+    fgets(str,sizeof(str),stdin);
+    printf("Enter the index of the character to replace:");
+    scanf("%d",&index);
+    getchar();
+    printf("Enter the new character:");
+    scanf("%c",&newchar);
+    int len=strlen(str);
+    if(index<0||index>=len)
+    {
+       printf("Invalid index! Index must be between 0&%d.\n",len-1);
+    }
+    else
+    {
+       str[index]=newchar;
+       printf("updated string:%s",str);
+    }
+    return 0;
+}
